@@ -79,16 +79,22 @@ angular.module('app.controllers', [])
 	// 	window.location.replace(loginUrl);
 	// }
 	//后台判断是否登录，根据cookie的session
-	$http({
-		url: '/rest/user/profile',
-		method: 'get'
-	}).then(function(response) {
-		// The then function here is an opportunity to modify the response
-		console.log(response);
-		// The return value gets picked up by the then in the controller.
-		$scope.uid = response.data.item.id;
-		$scope.username = response.data.item.name;
+	// $http({
+	// 	url: '/rest/user/profile',
+	// 	method: 'get'
+	// }).then(function(response) {
+	// 	// The then function here is an opportunity to modify the response
+	// 	console.log(response);
+	// 	// The return value gets picked up by the then in the controller.
+	// 	$scope.uid = response.data.item.id;
+	// 	$scope.username = response.data.item.name;
+	// });
+
+	userService.getUserProfile().then(function(data) {
+		 $scope.uid = data.id;
+		$scope.username = data.name;
 	});
+
 
 }])
 .controller('LangController', ['$scope', 'settings', 'localize', function($scope, settings, localize) {

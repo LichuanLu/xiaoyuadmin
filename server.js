@@ -819,18 +819,12 @@ app.configure(function() {
 
   });
 
-
-
-  app.get('/rest/user/profile', function(req, res) {
+  app.get('/rest/admin/user/profile', function(req, res) {
     console.dir(req.query);
     var data = {
       id: 1,
       name: "利好",
-      gender: "男",
-      birthdate: "2013-12-12",
-      identitynumber: "610103***********0818",
-      phonenumber: "152****4567",
-      location: "陕西，西安"
+      role:1
     };
     res.send({
       errorCode: 0,

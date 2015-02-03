@@ -31,6 +31,20 @@ angular.module('app.services', [])
 
 			// };
 
+			var getUserProfile = function() {
+				var promise = $http({
+					url: '/rest/admin/user/profile',
+					method: 'get'
+				}).then(function(response) {
+					// The then function here is an opportunity to modify the response
+					console.log(response);
+					// The return value gets picked up by the then in the controller.
+					return response.data.item;
+				});
+				// Return the promise to the controller
+				return promise;
+			};
+
 			var logout = function() {
 				var promise = $http({
 					url: '/rest/admin/logout',
@@ -48,8 +62,9 @@ angular.module('app.services', [])
 
 			return {
 				getUserList: getUserList,
-				logout:logout
-				// updateUser: updateUser
+				logout: logout,
+				getUserProfile:getUserProfile
+					// updateUser: updateUser
 			};
 		}
 	]);
