@@ -15,7 +15,7 @@ angular.module('smartApp')
 				var resCode = response.data.errorCode;
 				alert('调用错误：'+resMes);
 				if(resCode == 2){
-					var loginUrl = '/login.html';
+					var loginUrl = window.STATIC_PREFIX+'/login.html';
 					window.location.replace(loginUrl);
 				}
 			};

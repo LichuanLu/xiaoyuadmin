@@ -1,0 +1,1 @@
+window.STATIC_PREFIX = '/admin'
