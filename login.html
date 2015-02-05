@@ -208,7 +208,7 @@
 		<!--[if IE 8]>
 			
 			<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
-			
+
 		<![endif]-->
 		<script src="js/constant.js"></script>
 
@@ -263,7 +263,7 @@
 						success: function(data, status, request) {
 							if (request.status === 200) {
 								console.log('登录成功:'+data.item.id+','+data.item.name);
-								var mainUrl = window.STATIC_PREFIX+'/index.html#/dashboard?uid='+data.item.id+'&uname='+data.item.name;
+								var mainUrl = window.STATIC_PREFIX+'/index.html?uid='+data.item.id+'&uname='+data.item.name;
 								window.location.replace(mainUrl);
 							} else {
 								alert('登录错误：'+data.errorMessage);
